@@ -30,7 +30,7 @@ const achievements = {
     'supreme_collector': { name: 'Supreme Collector', emoji: '⭐', description: 'Receive 5 Supreme Fortune readings.' },
     'neutral_navigator': { name: 'Neutral Navigator', emoji: '🌑', description: 'Receive 5 Neutral readings.' },
     'dedicated_diviner': { name: 'Dedicated Diviner', emoji: '✨', description: 'Receive 100 total readings.' },
-    // Easy achievements
+
     'early_bird': { name: 'Early Bird', emoji: '🐦', description: 'Get a reading within your first 3 days.' },
     'fortune_favor': { name: 'Fortune Favor', emoji: '🌟', description: 'Receive 3 Greater Fortune readings.' },
     'balanced': { name: 'Balanced', emoji: '⚖️', description: 'Receive at least one reading of each tier.' },
@@ -43,16 +43,16 @@ const achievements = {
     'perfect_balance': { name: 'Perfect Balance', emoji: '🎯', description: 'Unveil more to achieve this.' },
     'neutral_champion': { name: 'Neutral Champion', emoji: '🌑', description: 'Unveil more to achieve this.' },
     'fortunes_chosen': { name: "Fortune's Chosen", emoji: '⭐', description: 'Unveil more to achieve this.' },
-    // Special achievement
+
     'wayseeker': { name: 'Wayseeker', emoji: '🥠', description: 'Given to whom first saught what thy future held, beyond realms and transcending fate. (You must be the developer to achieve this.)' }
 };
 
-// Date helper function
+
 function getTodayDateString() {
     return new Date().toISOString().split('T')[0];
 }
 
-// Get or initialize user stats
+
 function getUserStats(userId, userStats) {
     if (!userStats[userId]) {
         userStats[userId] = JSON.parse(JSON.stringify(DEFAULT_USER_STATS));
@@ -257,7 +257,7 @@ function checkAchievements(userId, stats, tier) {
     // Early Bird (reading within first 3 days)
     // If firstReadingDate is missing, estimate it from lastReadingDate and streak
     if (!stats.firstReadingDate && stats.lastReadingDate && stats.currentStreak) {
-        // Estimate first reading date: lastReadingDate - (currentStreak - 1) days
+
         const lastDate = new Date(stats.lastReadingDate);
         const estimatedFirstDate = new Date(lastDate);
         estimatedFirstDate.setDate(estimatedFirstDate.getDate() - (stats.currentStreak - 1));
@@ -358,17 +358,17 @@ function updateUserStats(userId, tier, userStats) {
         stats.firstReadingDate = today;
     }
     
-    // Update total readings
+    
     stats.totalReadings = (stats.totalReadings || 0) + 1;
     
-    // Update streak
+
     if (stats.lastReadingDate === yesterday) {
         // Continuing streak
         stats.currentStreak = (stats.currentStreak || 0) + 1;
     } else if (stats.lastReadingDate === today) {
         // Already read today, don't update streak
     } else {
-        // New streak
+
         stats.currentStreak = 1;
     }
     
@@ -383,7 +383,7 @@ function updateUserStats(userId, tier, userStats) {
     }
     stats.tierCounts[tier] = (stats.tierCounts[tier] || 0) + 1;
     
-    // Update Supreme Fortune count and consecutive streak
+
     if (tier === 'Supreme Fortune') {
         stats.supremeFortuneCount = (stats.supremeFortuneCount || 0) + 1;
         // If last tier was also Supreme Fortune, increment consecutive
@@ -412,7 +412,7 @@ function updateUserStats(userId, tier, userStats) {
     return unlocked;
 }
 
-// Check and grant Wayseeker achievement to owner
+
 function checkWayseeker(userId, stats, ownerId, userStats) {
     if (userId === ownerId && stats && !stats.achievements.includes('wayseeker')) {
         stats.achievements.push('wayseeker');
