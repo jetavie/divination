@@ -4,7 +4,7 @@ const path = require('path');
 const COOLDOWNS_FILE = path.join(__dirname, '..', 'cooldowns.json');
 const USERSTATS_FILE = path.join(__dirname, '..', 'userstats.json');
 
-// Load cooldowns from file
+
 async function loadCooldowns() {
     try {
         const data = await fsPromises.readFile(COOLDOWNS_FILE, 'utf8');
@@ -17,7 +17,7 @@ async function loadCooldowns() {
     }
 }
 
-// Save cooldowns to file
+
 async function saveCooldowns(cooldowns) {
     try {
         await fsPromises.writeFile(COOLDOWNS_FILE, JSON.stringify(cooldowns, null, 2));
@@ -33,7 +33,7 @@ function saveCooldownsDebounced(cooldowns) {
     saveCooldownsTimeout = setTimeout(() => saveCooldowns(cooldowns), 1000);
 }
 
-// Load user stats from file
+
 async function loadUserStats() {
     try {
         const data = await fsPromises.readFile(USERSTATS_FILE, 'utf8');
