@@ -1,0 +1,27 @@
+node_modules/
+.env
+cooldowns.json
+userstats.json
+example.env.local
+*.log
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Config files with sensitive data
+config.json
+
+# Data files
+cooldowns.json
+userstats.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+

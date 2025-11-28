@@ -1,0 +1,23 @@
+{
+  "name": "divination-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot for daily fortune readings and divination",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "deploy": "node deploy-commands.js"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "divination",
+    "fortune"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.25.0",
+    "dotenv": "^17.2.3",
+    "node.js": "^0.0.1-security"
+  }
+}
