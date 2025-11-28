@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 const { getRandomTier, getRandomFortune, getTierColor } = require('../utils/fortuneData');
 
 async function handleForceReading(interaction, isOwner) {
-    // Check if user is owner
+
     if (!isOwner(interaction.user.id)) {
         await interaction.reply({
             content: '❌ Insufficient Permissions.',
