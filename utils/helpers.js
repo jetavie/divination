@@ -1,13 +1,13 @@
 const { getTodayDateString } = require('./statsManager');
 const { saveCooldownsDebounced, saveCooldowns } = require('./fileHandler');
 
-// Date helper functions
+
 function getTomorrowUTC() {
     const now = new Date();
     return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1, 0, 0, 0, 0));
 }
 
-// Calculate time until next UTC midnight
+
 function getTimeUntilReset() {
     const now = new Date();
     const tomorrow = getTomorrowUTC();
@@ -19,7 +19,7 @@ function getTimeUntilReset() {
     return `${hours}h ${minutes}m until reset`;
 }
 
-// Cache date calculations for performance
+
 let cachedResetTime = getTimeUntilReset();
 let lastResetTimeUpdate = Date.now();
 
@@ -32,7 +32,7 @@ function getCachedResetTime() {
     return cachedResetTime;
 }
 
-// Check if user can get reading
+
 function canGetReading(userId, userCooldowns) {
     const today = getTodayDateString();
     return !userCooldowns[userId] || userCooldowns[userId] !== today;
