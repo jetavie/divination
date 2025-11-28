@@ -1,5 +1,5 @@
 async function handleMaintFinish(interaction, maintenanceMode, updateStatus, isOwner) {
-    // Check if user is owner
+ 
     if (!isOwner(interaction.user.id)) {
         await interaction.reply({
             content: '❌ Insufficient Permissions.',
