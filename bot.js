@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, ActivityType } = require('discord.js');
 
-// Load config from environment
+
 const config = {
     token: process.env.DISCORD_TOKEN,
     clientId: process.env.DISCORD_CLIENT_ID,
@@ -12,13 +12,13 @@ if (!config.token || !config.clientId || !config.ownerId) {
     throw new Error('DISCORD_TOKEN, DISCORD_CLIENT_ID, and DISCORD_OWNER_ID must be set in your environment.');
 }
 
-// Import utilities
+
 const { loadCooldowns, loadUserStats } = require('./utils/fileHandler');
 const { getCachedResetTime, getTomorrowUTC, cleanOldCooldowns } = require('./utils/helpers');
 const { getTimeUntilReset } = require('./utils/helpers');
 const { checkWayseeker } = require('./utils/statsManager');
 
-// Import command handlers
+
 const { handleReading } = require('./commands/reading');
 const { handleTiers } = require('./commands/tiers');
 const { handleStats } = require('./commands/stats');
@@ -29,12 +29,12 @@ const { handleAnnounce } = require('./commands/announce');
 const { handleForceReading } = require('./commands/force-reading');
 const { handleAchInfo } = require('./commands/achinfo');
 
-// Helper function to check if user is owner
+
 function isOwner(userId) {
     return userId === config.ownerId;
 }
 
-// State
+
 let userCooldowns = {};
 let userStats = {};
 
@@ -52,7 +52,7 @@ const client = new Client({
     ]
 });
 
-// Get user display name helper
+
 async function getUserDisplayName(userId, guild) {
     try {
         const user = await client.users.fetch(userId);
@@ -70,7 +70,7 @@ async function getUserDisplayName(userId, guild) {
     }
 }
 
-// Update bot status
+
 function updateStatus() {
     if (maintenanceMode.active) {
         client.user.setPresence({
@@ -125,10 +125,10 @@ client.once('ready', async () => {
         console.log(`Retroactively granted ${totalUnlocked} achievement(s) to existing users!`);
     }
     
-    // Initial status update
+
     updateStatus();
     
-    // Update status every 10 minutes
+
     setInterval(updateStatus, 10 * 60 * 1000);
     
     // Update cached reset time every minute (handled internally by getCachedResetTime)
@@ -150,7 +150,7 @@ client.once('ready', async () => {
 client.on('interactionCreate', async interaction => {
     if (!interaction.isChatInputCommand()) return;
 
-    // Check maintenance mode (allow maintenance commands to work)
+
     if (maintenanceMode.active && interaction.commandName !== 'maintenance' && interaction.commandName !== 'maintfinish') {
         await interaction.reply({
             content: `⚠️ Maintenance Ongoing. Reason: ${maintenanceMode.reason}`,
@@ -159,7 +159,7 @@ client.on('interactionCreate', async interaction => {
         return;
     }
 
-    // Route commands to handlers
+
     try {
         switch (interaction.commandName) {
             case 'reading':
