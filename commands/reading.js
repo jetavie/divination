@@ -6,7 +6,7 @@ const { updateUserStats, checkWayseeker, getUserStats } = require('../utils/stat
 async function handleReading(interaction, userCooldowns, userStats, ownerId) {
     const userId = interaction.user.id;
     
-    // Check and grant Wayseeker if user is owner
+
     const stats = getUserStats(userId, userStats);
     checkWayseeker(userId, stats, ownerId, userStats);
     
