@@ -23,14 +23,14 @@ async function handleLeaderboard(interaction, userStats, getUserDisplayName) {
             }
             return null;
         } catch (error) {
-            // User not found, skip
+
             return null;
         }
     });
     
     const usersWithStats = (await Promise.all(usersWithStatsPromises)).filter(u => u !== null);
     
-    // Sort by value (descending)
+
     usersWithStats.sort((a, b) => b.value - a.value);
     
     // Get top 10
