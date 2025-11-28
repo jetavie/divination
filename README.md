@@ -38,6 +38,6 @@ The bot persists cooldowns and user stats to `cooldowns.json` and `userstats.jso
 
 ### Contributing / Forking
 - Fork the repository and configure your own `.env`.
-- Avoid committing generated data or secrets—`.gitignore` already covers the sensitive files.
+- Avoid committing generated data or secrets -- `.gitignore` already covers the sensitive files.
 - Feel free to open pull requests with new commands or improvements.
 
