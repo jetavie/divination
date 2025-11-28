@@ -6,7 +6,7 @@ async function handleStats(interaction, userStats, getUserDisplayName, ownerId) 
     const userId = interaction.user.id;
     const stats = getUserStats(userId, userStats);
     
-    // Check and grant Wayseeker if user is owner
+
     checkWayseeker(userId, stats, ownerId, userStats);
     
     // Retroactively check and grant any achievements the user qualifies for
@@ -31,7 +31,7 @@ async function handleStats(interaction, userStats, getUserDisplayName, ownerId) 
         }
     }
     
-    // Format achievements
+
     let achievementsList = 'None';
     if (stats.achievements && stats.achievements.length > 0) {
         achievementsList = stats.achievements.map(achId => {
