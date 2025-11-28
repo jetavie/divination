@@ -1,4 +1,4 @@
-// Fortune readings data
+
 const fortunes = {
     'Supreme Fortune': [
         { emojis: '☀️☀️☀️', name: 'Radiant Days, Glorious Days', reading: 'The heavens smile upon you with boundless favor. Your path is illuminated by three suns, each casting away shadow and doubt. Great triumphs await in all endeavors—seize this moment, for destiny itself bends to your will.' },
@@ -40,7 +40,7 @@ const fortunes = {
     ]
 };
 
-// Tier descriptions
+
 const tierDescriptions = {
     'Supreme Fortune': 'The absolute pinnacle of cosmic favor. When you receive this, the universe itself celebrates your potential. Everything aligns in your favor.',
     'Greater Fortune': 'Excellent luck with powerful energy flowing your way. Success is nearly guaranteed, though perhaps with a touch of effort required.',
@@ -50,7 +50,7 @@ const tierDescriptions = {
     'Neutral': 'The void of fortune. This is a time to hunker down, build inner strength, and wait for better cosmic tides.'
 };
 
-// Tier color mapping
+
 const tierColors = {
     'Supreme Fortune': '#FFD700',
     'Greater Fortune': '#FFA500',
@@ -64,13 +64,13 @@ function getTierColor(tier) {
     return tierColors[tier] || '#696969';
 }
 
-// Get random fortune from a tier
+
 function getRandomFortune(tier) {
     const tierFortunes = fortunes[tier];
     return tierFortunes[Math.floor(Math.random() * tierFortunes.length)];
 }
 
-// Weighted random tier selection
+
 const TIER_WEIGHTS = [
     { name: 'Supreme Fortune', weight: 5 },
     { name: 'Greater Fortune', weight: 10 },
