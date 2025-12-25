@@ -3,7 +3,7 @@
 A slash-command Discord bot that delivers daily fortune readings, tracks streaks, and awards achievements. This repo is scrubbed for public sharing so others can fork, configure their own credentials, and host a copy.
 
 ## A note...
-→ I've been getting questions about whether this version of the bot will reflect the public facing version. In short, gradually. This version of the discord bot is slightly dated, and won't have the latest features available. This bot was made in mind for myself when it was first shipped, and I was not getting any requests to fork it.
+→ I've been getting questions about whether this version of the bot will reflect the public facing version. In short, gradually. For those who do not know, this version of the discord bot is slightly dated, and won't have the latest features available. The public version has more commands, features, etc. This bot was made in mind for myself when it was first shipped, and I was not getting any requests to fork it.
 
 ### Features
 - `/reading` daily fortune with cooldown tracking
